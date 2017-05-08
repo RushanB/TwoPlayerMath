@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *playerQuestion;
 @property (weak, nonatomic) IBOutlet UILabel *p1Score;
 @property (weak, nonatomic) IBOutlet UILabel *p2Score;
+@property (weak, nonatomic) IBOutlet UILabel *answer;
 
 @end
 
@@ -32,8 +33,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)enterButton:(id)sender {
+
+- (IBAction)enterPressed:(UIButton *)sender {
+    [self.answer setText:nil];
+    if(self.gameModel.currentPlayer == self.gameModel.p1){
+        self.p1Score.text = [self.gameModel outputScore];
+        self.gameModel.currentPlayer = self.gameModel.p2;
+        self.playerQuestion.text = [self.gameModel outputQuestion];
+    }else{
+        self.p2Score.text = [self.gameModel outputScore];
+        self.gameModel.currentPlayer = self.gameModel.p1;
+        self.playerQuestion.text = [self.gameModel outputQuestion];
+    }
     
+}
+
+- (IBAction)numbersPressed:(UIButton *)sender {
+    //NSLog(@"%i",sender.titleLabel.text.intValue);
+    NSString *guess = [self.answer.text stringByAppendingString:[sender currentTitle]];
+    NSString *msg = @"Game Over.";
+    [self.answer setText:guess];
+    [self.gameModel outputAnswer:[guess intValue]];
+    if(self.gameModel.gameOver){
+        self.playerQuestion.text = msg;
+    }
 }
 
 

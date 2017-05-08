@@ -31,7 +31,7 @@
 }
 
 -(NSString *)outputScore{
-    NSString *score = [NSString stringWithFormat:@"%@ Score: %i", self.currentPlayer.name, self.currentPlayer.score];
+    NSString *score = [NSString stringWithFormat:@"%@: %i", self.currentPlayer.name, self.currentPlayer.score];
     return score;
 }
 
