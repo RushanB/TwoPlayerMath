@@ -22,4 +22,6 @@
 -(NSString *)outputScore;
 -(void)outputAnswer:(int)inputAnswer;
 
+-(BOOL)gameOver;
+
 @end

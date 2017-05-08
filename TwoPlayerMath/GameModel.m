@@ -36,13 +36,19 @@
 }
 
 -(void)outputAnswer:(int)inputAnswer{
-    if(self.answer == inputAnswer){
-        self.currentPlayer.score += 1;
+    if(self.answer == inputAnswer){  //actual answer compares to user answer
+        self.currentPlayer.score += 1;  //score +1
     }else{
-        self.currentPlayer.lives --;
+        self.currentPlayer.lives --;  //lives -1
     }
 }
 
-
+-(BOOL)gameOver{
+    BOOL exit;
+    if(self.currentPlayer.lives == 0){  //if no lives left game over
+        exit = YES;
+    }
+    return exit;
+}
 
 @end

@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "Player.h"
+#import "GameModel.h"
 
 @interface ViewController ()
+
+@property (nonatomic) GameModel *gameModel;
+@property (weak, nonatomic) IBOutlet UILabel *playerQuestion;
+@property (weak, nonatomic) IBOutlet UILabel *p1Score;
+@property (weak, nonatomic) IBOutlet UILabel *p2Score;
 
 @end
 
@@ -16,14 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.gameModel = [[GameModel alloc] init];
+    self.playerQuestion.text = [self.gameModel outputQuestion];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)enterButton:(id)sender {
+    
+}
+
+
 
 
 @end
