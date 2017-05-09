@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *playerQuestion;
 @property (weak, nonatomic) IBOutlet UILabel *p1Score;
 @property (weak, nonatomic) IBOutlet UILabel *p2Score;
-@property (weak, nonatomic) IBOutlet UILabel *answer;
+
+@property (weak, nonatomic) IBOutlet UITextField *answer;
 
 @end
 
@@ -35,13 +36,17 @@
 }
 
 - (IBAction)enterPressed:(UIButton *)sender {
+    //[self.gameModel outputAnswer:[self.answer.text intValue]];
     [self.answer setText:nil];
-    if(self.gameModel.currentPlayer == self.gameModel.p1){
+    if(self.gameModel.gameOver){
+        self.playerQuestion.text = @"Game Over.";
+    }
+    if(self.gameModel.currentPlayer == self.gameModel.p1){ //p1 score
         self.p1Score.text = [self.gameModel outputScore];
         self.gameModel.currentPlayer = self.gameModel.p2;
         self.playerQuestion.text = [self.gameModel outputQuestion];
     }else{
-        self.p2Score.text = [self.gameModel outputScore];
+        self.p2Score.text = [self.gameModel outputScore]; //p2 score
         self.gameModel.currentPlayer = self.gameModel.p1;
         self.playerQuestion.text = [self.gameModel outputQuestion];
     }
@@ -51,11 +56,10 @@
 - (IBAction)numbersPressed:(UIButton *)sender {
     //NSLog(@"%i",sender.titleLabel.text.intValue);
     NSString *guess = [self.answer.text stringByAppendingString:[sender currentTitle]];
-    NSString *msg = @"Game Over.";
     [self.answer setText:guess];
     [self.gameModel outputAnswer:[guess intValue]];
     if(self.gameModel.gameOver){
-        self.playerQuestion.text = msg;
+      self.playerQuestion.text = @"Game Over.";
     }
 }
 

@@ -127,18 +127,18 @@
                                 <color key="textColor" red="1" green="0.064544009643714095" blue="0.15500029755994682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3gx-LR-gXz">
-                                <rect key="frame" x="166" y="268" width="42" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="j7f-Om-vS2">
+                                <rect key="frame" x="150" y="260" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="answer" destination="3gx-LR-gXz" id="yWx-8L-5q1"/>
+                        <outlet property="answer" destination="j7f-Om-vS2" id="yTM-ke-xDm"/>
                         <outlet property="p1Score" destination="lDO-NS-hfR" id="FXE-MS-Qrb"/>
                         <outlet property="p2Score" destination="wpf-4l-9za" id="bMV-Cf-Wip"/>
                         <outlet property="playerQuestion" destination="EsT-ia-AnE" id="lFP-M4-Q0V"/>
